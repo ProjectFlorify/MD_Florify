@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Florify</string>
+    <string name="welcome_h1">Create your dream flower garden with the help of PlanetH</string>
+    <string name="welcome_h2">Green the World, Starting from Your Home</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="name">Fullname</string>
+    <string name="password">Password</string>
+    <string name="error_message_email">Invalid Email Format</string>
+    <string name="error_message_password">Password must be more than 8 characters</string>
+    <string name="sign_up">or sign up with</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login_welcome">Sign in now</string>
+    <string name="register_welcome">Thank you for choosing us! Let\'s register to start an amazing journey</string>
+    <string name="register_text">Don\'t have an account yet?</string>
+    <string name="login_text">Already have an account?</string>
+    <string name="new_account">New Account</string>
+    <string name="sign_up_start">Sign up and get started</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_crop_shield">CropShield</string>
+    <string name="title_ensiklopedia">Ensiklopedia</string>
+    <string name="search">Search here…</string>
+    <string name="dashbord">Dashbord</string>
+    <string name="welcome_image">Welcome Image</string>
+    <string name="florify">FLORIFY</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="arrow">arrow</string>
+    <string name="all_fields_required">All fields are required</string>
+    <string name="tutorial_image">tutorial image</string>
+    <string name="scan">Scan</string>
+    <string name="scan_description">Scan your plant for diseases to learn more about its condition.</string>
+    <string name="try_it_now">try it now</string>
+</resources>
