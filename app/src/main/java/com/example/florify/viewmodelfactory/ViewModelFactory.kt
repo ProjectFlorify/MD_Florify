@@ -8,7 +8,10 @@ import com.example.florify.ui.home.HomeViewModel
 import com.example.florify.ui.welcome.login.LoginViewModel
 import com.example.florify.ui.welcome.register.RegisterViewModel
 
-class ViewModelFactory(private val repository: Repository, private val preferencesHelper: PreferencesHelper) : ViewModelProvider.Factory {
+class ViewModelFactory(
+    private val repository: Repository,
+    private val preferencesHelper: PreferencesHelper
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

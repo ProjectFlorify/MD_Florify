@@ -18,7 +18,8 @@ class HomeViewModel(
     val user: LiveData<Response?> get() = _user
     fun getUser() {
         viewModelScope.launch {
-            val result = repository.getUser("authorization ${preferencesHelper.getSession().toString()}")
+            val result =
+                repository.getUser("authorization ${preferencesHelper.getSession().toString()}")
             result.onSuccess {
                 _user.value = it
             }.onFailure {

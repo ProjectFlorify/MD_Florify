@@ -15,7 +15,7 @@ class RegisterViewModel(private val userRepository: Repository) : ViewModel() {
     private val _error = MutableLiveData<String?>()
 
     private val _isLoading = MutableLiveData<Boolean>()
-    var isLoading : LiveData<Boolean> = _isLoading
+    var isLoading: LiveData<Boolean> = _isLoading
     val error: LiveData<String?> get() = _error
 
     fun registerUser(name: String, email: String, password: String) {
@@ -32,11 +32,11 @@ class RegisterViewModel(private val userRepository: Repository) : ViewModel() {
         }
     }
 
-    private fun showLoading(){
+    private fun showLoading() {
         _isLoading.value = true
     }
 
-    private fun hideLoading(){
+    private fun hideLoading() {
         _isLoading.value = false
     }
 }

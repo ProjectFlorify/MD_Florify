@@ -52,11 +52,12 @@ class Login : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.loginResponse.observe(this) { response ->
             response?.let {
-                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
-                if (it.loginResult != null) {
-                    sharedPreferencesHelper.saveSession(response.loginResult?.accessToken.toString())
+                if (it.token != null) {
+                    sharedPreferencesHelper.saveSession(it.token.toString())
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
+                } else {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -66,6 +67,7 @@ class Login : AppCompatActivity() {
             }
         }
     }
+
 
     private fun setupLoginButton() {
         binding.loginButton.setOnClickListener {
@@ -85,8 +87,7 @@ class Login : AppCompatActivity() {
         return true
     }
 
-
-    private fun loading(){
+    private fun loading() {
         viewModel.isLoading.observe(this) { isLoading ->
             if (isLoading) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -96,7 +97,7 @@ class Login : AppCompatActivity() {
         }
     }
 
-    private fun goToRegister(){
+    private fun goToRegister() {
         binding.goRegister.setOnClickListener {
             val intent = Intent(this, Register::class.java)
             startActivity(intent)

@@ -86,7 +86,7 @@ class Register : AppCompatActivity() {
     }
 
 
-    private fun loading(){
+    private fun loading() {
         viewModel.isLoading.observe(this) { isLoading ->
             if (isLoading) {
                 binding.progressBar.visibility = View.VISIBLE
