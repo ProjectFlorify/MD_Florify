@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.florify.R
 import com.example.florify.api.setapi.ApiConfig
 import com.example.florify.databinding.ActivityRegisterBinding
+import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
 import com.example.florify.ui.welcome.login.Login
 import com.example.florify.viewmodelfactory.ViewModelFactory
@@ -22,6 +23,7 @@ class Register : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var viewModel: RegisterViewModel
+    private lateinit var sharedPreferencesHelper: PreferencesHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +36,10 @@ class Register : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        sharedPreferencesHelper = PreferencesHelper(this)
         val apiService = ApiConfig.getApiClient()
         val repository = Repository(apiService)
-        val viewModelFactory = ViewModelFactory(repository)
+        val viewModelFactory = ViewModelFactory(repository, sharedPreferencesHelper)
         viewModel = ViewModelProvider(this, viewModelFactory)[RegisterViewModel::class.java]
 
         setupObservers()

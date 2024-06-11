@@ -39,7 +39,7 @@ class Login : AppCompatActivity() {
         sharedPreferencesHelper = PreferencesHelper(this)
         val apiService = ApiConfig.getApiClient()
         val repository = Repository(apiService)
-        val viewModelFactory = ViewModelFactory(repository)
+        val viewModelFactory = ViewModelFactory(repository, sharedPreferencesHelper)
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
         playAnimation()
 
