@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,8 +16,6 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +23,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
+            ViewModelProvider(this)[ProfileViewModel::class.java]
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -36,9 +33,9 @@ class ProfileFragment : Fragment() {
         }
 
         binding.logout.setOnClickListener {
-            if(sharedPreferencesHelper.getSession().isNullOrEmpty()){
+            if (sharedPreferencesHelper.getSession().isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "Session Does'nt Exist", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 sharedPreferencesHelper.removeSession()
                 startActivity(Intent(requireContext(), Welcome::class.java))
             }

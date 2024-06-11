@@ -6,6 +6,7 @@ import com.example.florify.api.data.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
@@ -24,9 +25,8 @@ interface ApiService {
         @Field("password") password: String
     ): LoginResponse
 
-    @FormUrlEncoded
     @GET("user")
     suspend fun getUSer(
-        @Field("Authorization") token: String
+        @Header("Authorization") token: String
     ): Response
 }
