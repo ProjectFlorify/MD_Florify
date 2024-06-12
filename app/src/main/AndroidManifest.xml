@@ -21,7 +21,7 @@
             android:theme="@style/Theme.Florify.Splash"/>
 
         <activity
-            android:name=".ui.welcome.Welcome"
+            android:name=".ui.welcome.onboarding.Welcome"
             android:exported="true"
             android:theme="@style/Theme.Florify">
             <intent-filter>

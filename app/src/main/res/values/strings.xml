@@ -35,4 +35,11 @@
     <string name="scan_description">Scan your plant for diseases to learn more about its condition.</string>
     <string name="try_it_now">try it now</string>
     <string name="let_s_keep_your_plants_healthy">Let’s keep your plants healthy</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="third">Third</string>
+    <string name="second">Second</string>
+    <string name="first">First</string>
+    <string name="next">Next</string>
+    <string name="desc_menu_1">Monitor the health of your plants with detection history and action recommendations from PlantGuard.</string>
+    <string name="get_started">Get Started</string>
 </resources>

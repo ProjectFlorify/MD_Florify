@@ -1,4 +1,4 @@
-package com.example.florify.ui.welcome
+package com.example.florify.ui.welcome.onboarding
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import com.example.florify.ui.main.MainActivity
 import com.example.florify.databinding.ActivityWelcomeBinding
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.ui.welcome.login.Login
-import com.example.florify.ui.welcome.register.Register
 
 class Welcome : AppCompatActivity() {
 
@@ -17,28 +16,17 @@ class Welcome : AppCompatActivity() {
         supportActionBar?.hide()
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.login.setOnClickListener {
-            moveActivity("login")
-        }
-
-        binding.register.setOnClickListener {
-            moveActivity("register")
-        }
 
         val sharedPreferencesHelper = PreferencesHelper(this)
         val session = sharedPreferencesHelper.getSession()
         if (session != null) {
-            moveActivity("main")
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
-    }
 
-    private fun moveActivity(action: String) {
-        val intent = when (action) {
-            "login" -> Intent(this, Login::class.java)
-            "register" -> Intent(this, Register::class.java)
-            "main" -> Intent(this, MainActivity::class.java)
-            else -> throw IllegalArgumentException("Unknown action")
+        binding.button.setOnClickListener{
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
-        startActivity(intent)
     }
 }

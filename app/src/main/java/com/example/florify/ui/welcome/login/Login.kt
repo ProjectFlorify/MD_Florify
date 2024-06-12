@@ -111,9 +111,12 @@ class Login : AppCompatActivity() {
             ObjectAnimator.ofFloat(binding.passwordEditText, View.ALPHA, 0f, 1f).setDuration(500)
         val buttonAnimator =
             ObjectAnimator.ofFloat(binding.loginButton, View.ALPHA, 0f, 1f).setDuration(500)
-        AnimatorSet().apply {
-            playSequentially(emailAnimator, passwordAnimator, buttonAnimator)
-            start()
+        val togetherAnimatorSet = AnimatorSet().apply {
+            playTogether(emailAnimator, passwordAnimator)
         }
+        val sequentialAnimatorSet = AnimatorSet().apply {
+            playSequentially(togetherAnimatorSet, buttonAnimator)
+        }
+        sequentialAnimatorSet.start()
     }
 }
