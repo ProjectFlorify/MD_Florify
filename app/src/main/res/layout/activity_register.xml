@@ -78,7 +78,7 @@
             android:layout_marginHorizontal="40dp"
             android:alpha="0"
             android:background="@drawable/edittext"
-            android:drawableStart="@drawable/profile"
+            android:drawableStart="@drawable/profile_icon"
             android:drawablePadding="10dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -128,7 +128,7 @@
             android:textSize="14sp"
             tools:alpha="100" />
 
-        <com.example.florify.customview.ButtonCustom
+        <Button
             android:id="@+id/register_button"
             android:layout_width="250dp"
             android:layout_height="50dp"
@@ -183,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:alpha="0"
-            android:contentDescription="authentication"
+            android:contentDescription="@string/register"
             android:src="@drawable/google"
             tools:alpha="100" />
     </LinearLayout>

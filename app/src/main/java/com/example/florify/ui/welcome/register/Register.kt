@@ -114,16 +114,12 @@ class Register : AppCompatActivity() {
             ObjectAnimator.ofFloat(binding.registerButton, View.ALPHA, 0f, 1f).setDuration(500)
         val signUp = ObjectAnimator.ofFloat(binding.signUp, View.ALPHA, 0f, 1f).setDuration(500)
         val google = ObjectAnimator.ofFloat(binding.google, View.ALPHA, 0f, 1f).setDuration(500)
-        AnimatorSet().apply {
-            playSequentially(
-                nameAnimator,
-                emailAnimator,
-                passwordAnimator,
-                buttonAnimator,
-                signUp,
-                google
-            )
-            start()
+        val togetherAnimatorSet = AnimatorSet().apply {
+            playTogether(nameAnimator, emailAnimator, passwordAnimator, signUp)
         }
+        val sequentialAnimatorSet = AnimatorSet().apply {
+            playSequentially(togetherAnimatorSet, buttonAnimator, google)
+        }
+        sequentialAnimatorSet.start()
     }
 }
