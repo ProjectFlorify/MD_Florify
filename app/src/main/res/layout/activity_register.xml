@@ -35,14 +35,15 @@
         android:id="@+id/image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/welcome_image"
         android:src="@drawable/app_icon"
-        app:layout_constraintTop_toBottomOf="@id/login_first"
         app:layout_constraintBottom_toTopOf="@id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/login_first" />
 
     <TextView
         android:id="@+id/login"
@@ -79,7 +80,7 @@
             android:alpha="0"
             android:background="@drawable/edittext"
             android:drawableStart="@drawable/profile_icon"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
@@ -98,7 +99,7 @@
             android:alpha="0"
             android:background="@drawable/edittext"
             android:drawableStart="@drawable/email"
-            android:drawablePadding="10dp"
+            android:drawablePadding="1dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
