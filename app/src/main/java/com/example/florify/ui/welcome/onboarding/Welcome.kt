@@ -22,11 +22,13 @@ class Welcome : AppCompatActivity() {
         if (session != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.button.setOnClickListener{
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

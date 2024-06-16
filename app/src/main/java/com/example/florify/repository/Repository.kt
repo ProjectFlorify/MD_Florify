@@ -1,5 +1,7 @@
 package com.example.florify.repository
 
+import com.example.florify.api.data.EncyclopediaItem
+import com.example.florify.api.data.EncyclopediaResponse
 import com.example.florify.api.data.LoginResponse
 import com.example.florify.api.data.RegisterResponse
 import com.example.florify.api.data.Response
@@ -31,9 +33,26 @@ class Repository(private val apiService: ApiService) {
         }
     }
 
-    suspend fun getUser(token: String): Result<Response> {
+    suspend fun getUser(token: String): Result<Response>{
         return try {
             val response = apiService.getUSer(token)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    suspend fun getEncyclopediaList(): Result<EncyclopediaResponse> {
+        return try {
+            val response = apiService.getEncyclopedia()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun getSearchEncyclopedia(query: String): Result<EncyclopediaResponse> {
+        return try {
+            val response = apiService.getSearchEncyclopedia(query)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

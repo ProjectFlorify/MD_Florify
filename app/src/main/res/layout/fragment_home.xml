@@ -7,53 +7,52 @@
     tools:context=".ui.home.HomeFragment">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@color/green"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/round_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_home"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/title_home"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_dashboard"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:elevation="20dp"
+            android:src="@drawable/app_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_dashboard"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:elevation="20dp"
-                android:src="@drawable/app_icon"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/text_dashboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/dashbord"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image_dashboard" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <TextView
+            android:id="@+id/text_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/dashbord"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_dashboard" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <com.google.android.material.card.MaterialCardView
@@ -61,13 +60,12 @@
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginTop="150dp"
-        android:elevation="50dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
+        app:cardElevation="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/green"
         app:strokeWidth="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -91,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="42dp"
                 android:text="@string/welcome"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/let_s_keep_your_plants_healthy"
                 android:textAlignment="textStart"
+                android:textColor="@color/grey"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/welcome" />
@@ -110,91 +110,283 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/card_view_welcome"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="30dp"
-        android:elevation="50dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="8dp"
+        app:layoutDescription="@xml/fragment_home_xml_card_view_welcome_scene"
+        app:layout_constraintBottom_toTopOf="@id/rv_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_view">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView4"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_tutorial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/tutorial_image"
+                    android:src="@drawable/tutorial_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_tutorial" />
+
+                <TextView
+                    android:id="@+id/scan_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/scan_description"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scan" />
+
+                <TextView
+                    android:id="@+id/go_to_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:text="@string/try_it_now"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scan_description" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView5"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1">
 
             <ImageView
-                android:id="@+id/image_tutorial"
+                android:id="@+id/image_read"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="24dp"
                 android:contentDescription="@string/tutorial_image"
-                android:src="@drawable/tutorial_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/scan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image_tutorial" />
-
-            <TextView
-                android:id="@+id/scan_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="8dp"
-                android:text="@string/scan_description"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scan" />
+                android:src="@drawable/book_read" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/try_it_now"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="42dp"
+                android:text="@string/protect_your_plants"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/arrow"
-                app:layout_constraintTop_toBottomOf="@id/scan_description" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/arrow"
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/essential_tips_for_identifying_and_preventing_plant_diseases"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="@string/arrow"
-                android:src="@drawable/baseline_arrow_forward_ios_24"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scan_description" />
+                android:layout_gravity="bottom"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/encyclopedia"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView6"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/new_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/tutorial_image"
+                    android:src="@drawable/tutorial_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/new_image" />
+
+                <TextView
+                    android:id="@+id/description_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/scan_description"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_new" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/try_it_now"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/arrow_new"
+                    app:layout_constraintTop_toBottomOf="@id/description_new" />
+
+                <ImageView
+                    android:id="@+id/arrow_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/arrow"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description_new" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/menu1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:altSrc="@drawable/ic_circle_full_24"
+            app:layout_constraintBottom_toBottomOf="@id/menu2"
+            app:layout_constraintEnd_toStartOf="@+id/menu2"
+            app:layout_constraintTop_toTopOf="@id/menu2"
+            app:srcCompat="@drawable/ic_circle_24"
+            app:tint="@color/light_blu" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/menu2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:altSrc="@drawable/ic_circle_full_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_circle_24"
+            app:tint="@color/light_blu" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/menu3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            app:altSrc="@drawable/ic_circle_full_24"
+            app:layout_constraintBottom_toBottomOf="@id/menu2"
+            app:layout_constraintStart_toEndOf="@+id/menu2"
+            app:layout_constraintTop_toTopOf="@id/menu2"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_circle_24"
+            app:tint="@color/light_blu" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    <TextView
+        android:id="@+id/to_encyclopedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/view_more"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_welcome" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view_welcome" />
+        app:layout_constraintTop_toBottomOf="@+id/card_view_welcome" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/rv_item"
+        app:layout_constraintEnd_toEndOf="@id/rv_item"
+        app:layout_constraintStart_toStartOf="@id/rv_item"
+        app:layout_constraintTop_toTopOf="@id/rv_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

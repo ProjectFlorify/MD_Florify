@@ -53,6 +53,7 @@ class Login : AppCompatActivity() {
         viewModel.loginResponse.observe(this) { response ->
             response?.let {
                 if (it.token != null) {
+                    Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
                     sharedPreferencesHelper.saveSession(it.token.toString())
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()

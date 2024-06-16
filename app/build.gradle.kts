@@ -61,4 +61,10 @@ dependencies {
     implementation(libs.loggingInterceptor)
     implementation(libs.coroutines)
     implementation(libs.gsonConverter)
+    implementation(libs.camerax)
+    implementation(libs.camera)
+    implementation(libs.lifecycle)
+    implementation(libs.camera.core)
+    implementation(libs.camera.extensions)
+    implementation(libs.glide)
 }
