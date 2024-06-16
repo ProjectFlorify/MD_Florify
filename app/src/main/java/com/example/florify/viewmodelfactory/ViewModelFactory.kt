@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
+import com.example.florify.ui.ensiklopedia.EncyclopediaViewModel
 import com.example.florify.ui.home.HomeViewModel
 import com.example.florify.ui.welcome.login.LoginViewModel
 import com.example.florify.ui.welcome.register.RegisterViewModel
@@ -24,6 +25,10 @@ class ViewModelFactory(
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return HomeViewModel(repository, preferencesHelper) as T
+        }
+        if(modelClass.isAssignableFrom(EncyclopediaViewModel::class.java)){
+            @Suppress("UNCHECKED_CAST")
+            return EncyclopediaViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

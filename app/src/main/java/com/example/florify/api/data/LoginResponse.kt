@@ -1,7 +1,10 @@
 package com.example.florify.api.data
 
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
+@Parcelize
 data class LoginResponse(
 
 	@field:SerializedName("error")
@@ -12,4 +15,4 @@ data class LoginResponse(
 
 	@field:SerializedName("token")
 	val token: String? = null
-)
+) : Parcelable

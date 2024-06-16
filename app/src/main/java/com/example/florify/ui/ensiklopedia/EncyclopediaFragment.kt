@@ -1,38 +1,33 @@
-package com.example.florify.ui.home
+package com.example.florify.ui.ensiklopedia
 
-import HorizontalAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.florify.adapter.EncyclopediaAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.florify.api.setapi.ApiConfig
-import com.example.florify.databinding.FragmentHomeBinding
+import com.example.florify.databinding.FragmentEnsiklopediaBinding
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
+import com.example.florify.adapter.EncyclopediaAdapter
 import com.example.florify.viewmodelfactory.ViewModelFactory
 
-class HomeFragment : Fragment() {
+class EncyclopediaFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentEnsiklopediaBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel: EncyclopediaViewModel
     private lateinit var sharedPreferencesHelper: PreferencesHelper
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
         val apiService = ApiConfig.getApiClient()
         val repository = Repository(apiService)
 
@@ -40,26 +35,18 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(
             this,
             ViewModelFactory(repository, sharedPreferencesHelper)
-        )[HomeViewModel::class.java]
-        binding.rvItem.layoutManager =
-            GridLayoutManager(requireContext(), 1, GridLayoutManager.HORIZONTAL, false)
-        binding.rvItem.setHasFixedSize(true)
-        getUser()
+        )[EncyclopediaViewModel::class.java]
+
+        _binding = FragmentEnsiklopediaBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        binding.rvEncyclopedia.layoutManager = LinearLayoutManager(requireContext())
+
         getEncyclopedia()
         loading()
-        return root
-    }
+        setupSearchView()
 
-    private fun getUser() {
-        viewModel.getUser()
-        viewModel.user.observe(viewLifecycleOwner) {
-            if (it != null) {
-                binding.textDashboard.text = "Hi, ${it.userData?.name}!"
-            } else {
-                Toast.makeText(requireContext(), "Gagal mendapatkan data", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
+        return root
     }
 
     private fun getEncyclopedia() {
@@ -67,13 +54,39 @@ class HomeFragment : Fragment() {
         viewModel.encyclopediaList.observe(viewLifecycleOwner) { items ->
             if (items != null) {
                 val nonNullItems = items.filterNotNull()
-                binding.rvItem.adapter = HorizontalAdapter(nonNullItems)
+                binding.rvEncyclopedia.adapter = EncyclopediaAdapter(nonNullItems)
             } else {
                 Toast.makeText(requireContext(), "Data is null", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.error.observe(viewLifecycleOwner) { error ->
             Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setupSearchView() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.searchView.clearFocus()
+                query?.let {
+                    loading()
+                    viewModel.searchEncyclopedia(it)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+        })
+
+        viewModel.filteredEncyclopediaList.observe(viewLifecycleOwner) { filteredItems ->
+            if (filteredItems != null) {
+                val nonNullItems = filteredItems.filterNotNull()
+                binding.rvEncyclopedia.adapter = EncyclopediaAdapter(nonNullItems)
+            } else {
+                Toast.makeText(requireContext(), "No results found", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

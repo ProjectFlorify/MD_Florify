@@ -42,4 +42,14 @@
     <string name="next">Next</string>
     <string name="desc_menu_1">Monitor the health of your plants with detection history and action recommendations from PlantGuard.</string>
     <string name="get_started">Get Started</string>
+    <string name="fragment_camera">fragment_camera</string>
+    <string name="image_result">image_result</string>
+    <string name="back_button">back button</string>
+    <string name="camera_button">camera_button</string>
+    <string name="handling">Handling</string>
+    <string name="protect_your_plants">Protect Your Plants</string>
+    <string name="essential_tips_for_identifying_and_preventing_plant_diseases">Essential Tips for Identifying and Preventing Plant Diseases</string>
+    <string name="encyclopedia">Encyclopedia</string>
+    <string name="view_more">View more...</string>
+    <string name="exit">Exit</string>
 </resources>
