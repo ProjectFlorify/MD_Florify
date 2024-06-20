@@ -4,71 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_card"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="100dp"
         android:background="@drawable/round_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_pict"
-        android:layout_width="100dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile"
+        android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
-        android:src="@drawable/profile"
-        app:civ_border_width="2dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pict"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/florify"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="80dp"
+            android:textColor="@color/grey"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/app_name"
-        android:textSize="24sp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/history_text"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_pict" />
+        app:layout_constraintBottom_toTopOf="@id/history_card"
+        app:layout_constraintStart_toStartOf="@id/history_card" />
 
-    <ImageView
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/history_card"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/white"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="@id/profile"
+        app:layout_constraintStart_toStartOf="@id/profile"
+        app:layout_constraintTop_toBottomOf="@id/profile">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingVertical="20dp">
+
+            <Button
+                android:id="@+id/history"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="@string/history_button" />
+
+            <Button
+                android:id="@+id/delete_all_history"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="@string/delete_all_history" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/back_button"
-        android:src="@drawable/baseline_arrow_back_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="8dp"
+        android:text="@string/account"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/account"
+        app:layout_constraintStart_toStartOf="@id/account" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_theme"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/account"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/white"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="@id/history_card"
+        app:layout_constraintStart_toStartOf="@id/history_card"
+        app:layout_constraintTop_toBottomOf="@id/history_card">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingVertical="20dp">
+
+
+            <Button
+                android:id="@+id/update_account"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="@string/update_account" />
+
+            <Button
+                android:id="@+id/delete_account"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/red"
+                android:text="@string/delete_account" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.8"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/logout"
-        android:layout_width="250dp"
-        android:backgroundTint="@color/red"
-        android:text="@string/exit"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/red"
         android:drawableEnd="@drawable/baseline_exit_to_app_24"
-        android:layout_height="50dp"
+        android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

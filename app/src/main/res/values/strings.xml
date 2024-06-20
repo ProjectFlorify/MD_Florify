@@ -9,6 +9,7 @@
     <string name="password">Password</string>
     <string name="error_message_email">Invalid Email Format</string>
     <string name="error_message_password">Password must be more than 8 characters</string>
+    <string name="error_message_username">Username must be less than 15 characters</string>
     <string name="sign_up">or sign up with</string>
     <string name="welcome">Welcome!</string>
     <string name="login_welcome">Sign in now</string>
@@ -19,10 +20,10 @@
     <string name="sign_up_start">Sign up and get started</string>
     <string name="title_activity_home_page">HomePage</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_forum">Forum</string>
+    <string name="title_profile">Profile</string>
     <string name="title_activity_crop_shield">CropShield</string>
-    <string name="title_ensiklopedia">Ensiklopedia</string>
+    <string name="title_encyclopedia">Encyclopedia</string>
     <string name="search">Search here…</string>
     <string name="dashbord">Dashbord</string>
     <string name="welcome_image">Welcome Image</string>
@@ -40,7 +41,9 @@
     <string name="second">Second</string>
     <string name="first">First</string>
     <string name="next">Next</string>
-    <string name="desc_menu_1">Monitor the health of your plants with detection history and action recommendations from PlantGuard.</string>
+    <string name="desc_menu_1">Welcome to the plant disease detection app. Get comprehensive information about plant health quickly and accurately.</string>
+    <string name="desc_menu_3">Identify plant issues and take appropriate action with just a few easy steps.</string>
+    <string name="desc_menu_2">Discover solutions for your plants with detailed information about various types of diseases that may affect them.</string>
     <string name="get_started">Get Started</string>
     <string name="fragment_camera">fragment_camera</string>
     <string name="image_result">image_result</string>
@@ -52,4 +55,24 @@
     <string name="encyclopedia">Encyclopedia</string>
     <string name="view_more">View more...</string>
     <string name="exit">Exit</string>
+    <string name="predictions">Predictions : </string>
+    <string name="history">History</string>
+    <string name="update">Update</string>
+    <string name="post">Forum</string>
+    <string name="discover_the_beauty_in_every_leaf">Discover the Beauty in Every Leaf</string>
+    <string name="dive">Learn How to Understand and Care for Them Well.</string>
+    <string name="comments">Comments</string>
+    <string name="post_to_forum">Post to Forum</string>
+    <string name="submit">Submit</string>
+    <string name="scan_result">Scan Result :</string>
+    <string name="detail">Detail</string>
+    <string name="corn">Corn</string>
+    <string name="rice">Rice</string>
+    <string name="potato">Potato</string>
+    <string name="delete_account">delete account</string>
+    <string name="update_account">Update Account</string>
+    <string name="account">Account</string>
+    <string name="delete_all_history">delete all history</string>
+    <string name="history_button">History</string>
+    <string name="history_text">History</string>
 </resources>

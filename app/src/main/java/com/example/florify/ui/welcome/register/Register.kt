@@ -8,11 +8,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.florify.R
-import com.example.florify.api.setapi.ApiConfig
 import com.example.florify.databinding.ActivityRegisterBinding
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
@@ -31,11 +28,6 @@ class Register : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         sharedPreferencesHelper = PreferencesHelper(this)
         val apiService = ApiConfig.getApiClient()
         val repository = Repository(apiService)
@@ -112,13 +104,11 @@ class Register : AppCompatActivity() {
             ObjectAnimator.ofFloat(binding.passwordEditText, View.ALPHA, 0f, 1f).setDuration(500)
         val buttonAnimator =
             ObjectAnimator.ofFloat(binding.registerButton, View.ALPHA, 0f, 1f).setDuration(500)
-        val signUp = ObjectAnimator.ofFloat(binding.signUp, View.ALPHA, 0f, 1f).setDuration(500)
-        val google = ObjectAnimator.ofFloat(binding.google, View.ALPHA, 0f, 1f).setDuration(500)
         val togetherAnimatorSet = AnimatorSet().apply {
-            playTogether(nameAnimator, emailAnimator, passwordAnimator, signUp)
+            playTogether(nameAnimator, emailAnimator, passwordAnimator)
         }
         val sequentialAnimatorSet = AnimatorSet().apply {
-            playSequentially(togetherAnimatorSet, buttonAnimator, google)
+            playSequentially(togetherAnimatorSet, buttonAnimator)
         }
         sequentialAnimatorSet.start()
     }

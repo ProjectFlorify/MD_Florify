@@ -4,8 +4,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -24,14 +25,13 @@ class Camera : AppCompatActivity() {
     private var cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var flashMode = ImageCapture.FLASH_MODE_OFF
 
-    private val galleryLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImageUri: Uri? = result.data?.data
-            val intent = Intent(this, CameraResult::class.java)
-            intent.putExtra("imageUri", selectedImageUri.toString())
-            startActivity(intent)
+    private val launcherGallery = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            moveToCameraResult(uri)
+        } else {
+            Log.d("Photo Picker", "No media selected")
         }
     }
 
@@ -56,16 +56,12 @@ class Camera : AppCompatActivity() {
             takePhoto()
         }
 
-        binding.flashButton.setOnClickListener {
-            toggleFlash()
-        }
-
         binding.rotateButton.setOnClickListener {
             switchCamera()
         }
 
         binding.galleryButton.setOnClickListener {
-            openGallery()
+            startGallery()
         }
     }
 
@@ -78,6 +74,7 @@ class Camera : AppCompatActivity() {
         if (requestCode == Constants.REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
                 startCamera()
+                finish()
             } else {
                 Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT)
                     .show()
@@ -138,21 +135,10 @@ class Camera : AppCompatActivity() {
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
-                    val intent = Intent(this@Camera, CameraResult::class.java)
-                    intent.putExtra("imageUri", savedUri.toString())
-                    startActivity(intent)
+                    moveToCameraResult(savedUri)
                 }
             }
         )
-    }
-
-    private fun toggleFlash() {
-        flashMode = when (flashMode) {
-            ImageCapture.FLASH_MODE_ON -> ImageCapture.FLASH_MODE_OFF
-            ImageCapture.FLASH_MODE_OFF -> ImageCapture.FLASH_MODE_ON
-            else -> ImageCapture.FLASH_MODE_OFF
-        }
-        bindCameraUserCases()
     }
 
     private fun switchCamera() {
@@ -164,8 +150,13 @@ class Camera : AppCompatActivity() {
         bindCameraUserCases()
     }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        galleryLauncher.launch(intent)
+    private fun startGallery() {
+        launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
+    private fun moveToCameraResult(uri: Uri) {
+        val intent = Intent(this@Camera, CameraResult::class.java)
+        intent.putExtra("imageUri", uri.toString())
+        startActivity(intent)
     }
 }

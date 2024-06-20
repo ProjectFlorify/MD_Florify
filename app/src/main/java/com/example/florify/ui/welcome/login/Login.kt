@@ -8,12 +8,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.florify.ui.main.MainActivity
 import com.example.florify.R
-import com.example.florify.api.setapi.ApiConfig
 import com.example.florify.databinding.ActivityLoginBinding
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
@@ -30,11 +27,6 @@ class Login : AppCompatActivity() {
         supportActionBar?.hide()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         sharedPreferencesHelper = PreferencesHelper(this)
         val apiService = ApiConfig.getApiClient()
@@ -53,12 +45,12 @@ class Login : AppCompatActivity() {
         viewModel.loginResponse.observe(this) { response ->
             response?.let {
                 if (it.token != null) {
-                    Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
                     sharedPreferencesHelper.saveSession(it.token.toString())
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
-                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -12,19 +12,19 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.florify.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.example.florify.ui.forum.ForumFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_forum" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.florify.ui.profile.ProfileFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_encyclopedia"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_ensiklopedia"
         android:name="com.example.florify.ui.ensiklopedia.EncyclopediaFragment"
-        android:label="@string/title_ensiklopedia"
-        tools:layout="@layout/fragment_ensiklopedia" />
+        android:label="@string/title_encyclopedia"
+        tools:layout="@layout/fragment_encyclopedia" />
 </navigation>

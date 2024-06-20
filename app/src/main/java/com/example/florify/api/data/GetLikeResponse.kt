@@ -1,15 +1,15 @@
 package com.example.florify.api.data
 
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-data class Response(
-
-	@field:SerializedName("userData")
-	val userData: UserData? = null,
+@Parcelize
+data class GetLikeResponse(
 
 	@field:SerializedName("error")
 	val error: Boolean? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null
-)
+) : Parcelable

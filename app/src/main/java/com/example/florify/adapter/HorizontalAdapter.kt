@@ -1,3 +1,5 @@
+package com.example.florify.adapter
+
 import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
@@ -19,8 +21,8 @@ class HorizontalAdapter(private val itemList: List<EncyclopediaItem>) :
     RecyclerView.Adapter<HorizontalAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textView: TextView = itemView.findViewById(R.id.title_home)
-        val imageView: ImageView = itemView.findViewById(R.id.image_home)
+        private val textView: TextView = itemView.findViewById(R.id.title_home)
+        private val imageView: ImageView = itemView.findViewById(R.id.image_home)
         fun bind(encyclopediaItem: EncyclopediaItem) {
 
             textView.text = encyclopediaItem.title
@@ -53,7 +55,5 @@ class HorizontalAdapter(private val itemList: List<EncyclopediaItem>) :
         holder.bind(itemList[position])
     }
 
-    override fun getItemCount(): Int {
-        return itemList.size
-    }
+    override fun getItemCount(): Int = itemList.size
 }

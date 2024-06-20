@@ -3,10 +3,8 @@ package com.example.florify.ui.ensiklopedia
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.florify.R
 import com.example.florify.api.data.EncyclopediaItem
 import com.example.florify.databinding.ActivityEncyclopediaDetailBinding
 

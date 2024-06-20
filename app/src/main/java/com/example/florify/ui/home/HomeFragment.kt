@@ -1,6 +1,5 @@
 package com.example.florify.ui.home
 
-import HorizontalAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.florify.adapter.EncyclopediaAdapter
-import com.example.florify.api.setapi.ApiConfig
+import com.example.florify.adapter.HorizontalAdapter
 import com.example.florify.databinding.FragmentHomeBinding
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository

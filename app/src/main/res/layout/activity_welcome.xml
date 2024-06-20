@@ -12,38 +12,25 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:contentDescription="@string/welcome_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.69"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/florify" />
 
     <ImageView
         android:id="@+id/logoMenu1"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/img1"
+        android:contentDescription="@string/welcome_image"
+        android:src="@drawable/urban_farming"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1" />
-
-    <TextView
-        android:id="@+id/titleMenu1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:gravity="center_horizontal"
-        android:text="@string/first"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/logoMenu1"
-        app:layout_constraintStart_toStartOf="@+id/logoMenu1"
-        app:layout_constraintTop_toBottomOf="@+id/logoMenu1" />
 
     <TextView
         android:id="@+id/descMenu1"
@@ -55,33 +42,19 @@
         android:gravity="center_horizontal"
         android:text="@string/desc_menu_1"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/titleMenu1"
-        app:layout_constraintStart_toStartOf="@+id/titleMenu1"
-        app:layout_constraintTop_toBottomOf="@+id/titleMenu1" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/logoMenu1"
+        app:layout_constraintStart_toStartOf="@+id/logoMenu1"
+        app:layout_constraintTop_toBottomOf="@+id/logoMenu1" />
 
     <ImageView
         android:id="@+id/logoMenu2"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/img1"
+        android:contentDescription="@string/welcome_image"
+        android:src="@drawable/gardening"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/titleMenu2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:gravity="center_horizontal"
-        android:text="@string/second"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/logoMenu2"
-        app:layout_constraintStart_toStartOf="@+id/logoMenu2"
-        app:layout_constraintTop_toBottomOf="@+id/logoMenu2" />
 
     <TextView
         android:id="@+id/descMenu2"
@@ -91,37 +64,23 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center_horizontal"
-        android:text="@string/desc_menu_1"
+        android:text="@string/desc_menu_2"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/titleMenu2"
-        app:layout_constraintStart_toStartOf="@+id/titleMenu2"
-        app:layout_constraintTop_toBottomOf="@+id/titleMenu2" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/logoMenu2"
+        app:layout_constraintStart_toStartOf="@+id/logoMenu2"
+        app:layout_constraintTop_toBottomOf="@+id/logoMenu2" />
 
     <ImageView
         android:id="@+id/logoMenu3"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/img1"
+        android:contentDescription="@string/welcome_image"
+        android:src="@drawable/translate_via_camera_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1" />
-
-    <TextView
-        android:id="@+id/titleMenu3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:gravity="center_horizontal"
-        android:text="@string/third"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/logoMenu3"
-        app:layout_constraintStart_toStartOf="@+id/logoMenu3"
-        app:layout_constraintTop_toBottomOf="@+id/logoMenu3" />
 
     <TextView
         android:id="@+id/descMenu3"
@@ -131,12 +90,12 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center_horizontal"
-        android:text="@string/desc_menu_1"
+        android:text="@string/desc_menu_3"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/titleMenu3"
-        app:layout_constraintStart_toStartOf="@+id/titleMenu3"
-        app:layout_constraintTop_toBottomOf="@+id/titleMenu3" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/logoMenu3"
+        app:layout_constraintStart_toStartOf="@+id/logoMenu3"
+        app:layout_constraintTop_toBottomOf="@+id/logoMenu3" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu1"
@@ -177,12 +136,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="100dp"
-        app:cornerRadius="24dp"
         android:alpha="0"
-        android:backgroundTint="@color/green"
+        android:background="@drawable/login_button"
         android:text="@string/get_started"
+        app:cornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="811dp" />

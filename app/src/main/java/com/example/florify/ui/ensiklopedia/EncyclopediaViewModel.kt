@@ -15,9 +15,6 @@ class EncyclopediaViewModel(val repository: Repository) : ViewModel() {
     private val _filteredEncyclopediaList = MutableLiveData<List<EncyclopediaItem?>?>()
     val filteredEncyclopediaList: LiveData<List<EncyclopediaItem?>?> get() = _filteredEncyclopediaList
 
-    private val _titlesList = MutableLiveData<List<String?>?>()
-    val titlesList: LiveData<List<String?>?> get() = _titlesList
-
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 

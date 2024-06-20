@@ -22,9 +22,9 @@ class EncyclopediaAdapter(
 ) : RecyclerView.Adapter<EncyclopediaAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.title_disease)
-        val description: TextView = itemView.findViewById(R.id.desc_disease)
-        val image: ImageView = itemView.findViewById(R.id.image_disease)
+        private val title: TextView = itemView.findViewById(R.id.title_disease)
+        private val description: TextView = itemView.findViewById(R.id.desc_disease)
+        private val image: ImageView = itemView.findViewById(R.id.image_disease)
         fun bind(encyclopediaItem: EncyclopediaItem) {
 
             title.text = encyclopediaItem.title
@@ -59,7 +59,5 @@ class EncyclopediaAdapter(
         holder.bind(items[position])
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount(): Int = items.size
 }

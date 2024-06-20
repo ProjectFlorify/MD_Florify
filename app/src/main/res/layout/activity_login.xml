@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.welcome.login.Login">
 
     <ProgressBar
@@ -38,6 +39,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintVertical_bias="0.4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +62,7 @@
             android:text="@string/login_welcome"
             android:textAlignment="center"
             android:textColor="@color/green"
-            android:textSize="24sp"
+            android:textSize="42sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,17 +71,20 @@
         <com.example.florify.customview.EmailEditText
             android:id="@+id/emailEditText"
             android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="30dp"
+            android:textColor="@color/grey"
             android:alpha="0"
             android:background="@drawable/edittext"
             android:drawableStart="@drawable/email"
             android:drawablePadding="10dp"
             android:focusable="true"
+            android:textSize="18sp"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
             android:hint="@string/email"
+            android:textColorHint="@color/grey"
             android:inputType="textEmailAddress"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
@@ -88,7 +93,8 @@
         <com.example.florify.customview.PasswordEditText
             android:id="@+id/passwordEditText"
             android:layout_width="330dp"
-            android:layout_height="50dp"
+            android:textColor="@color/grey"
+            android:layout_height="60dp"
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="30dp"
             android:alpha="0"
@@ -98,11 +104,12 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
+            android:textColorHint="@color/grey"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:paddingStart="20dp"
             android:paddingEnd="10dp"
-            android:textSize="14sp"
+            android:textSize="18sp"
             tools:alpha="100" />
 
         <Button
@@ -122,7 +129,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -130,7 +137,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/register_text" />
+                android:textColor="@color/grey"
+                android:text="@string/register_text"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/go_register"
@@ -140,6 +149,7 @@
                 android:paddingEnd="5dp"
                 android:text="@string/register"
                 android:textColor="@color/green"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

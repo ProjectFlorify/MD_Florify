@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.florify.api.data.EncyclopediaItem
-import com.example.florify.api.data.Response
+import com.example.florify.api.data.GetUserResponse
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
 import kotlinx.coroutines.launch
@@ -17,10 +17,13 @@ class HomeViewModel(
 
     private val _encyclopediaList = MutableLiveData<List<EncyclopediaItem?>?>()
     val encyclopediaList: LiveData<List<EncyclopediaItem?>?> get() = _encyclopediaList
-    private val _user = MutableLiveData<Response?>()
-    val user: LiveData<Response?> get() = _user
+
+    private val _user = MutableLiveData<GetUserResponse?>()
+    val user: LiveData<GetUserResponse?> get() = _user
+
     private val _isLoading = MutableLiveData<Boolean>()
     var isLoading: LiveData<Boolean> = _isLoading
+
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
     fun getUser() {

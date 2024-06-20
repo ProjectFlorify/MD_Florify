@@ -9,16 +9,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.florify.api.setapi.ApiConfig
-import com.example.florify.databinding.FragmentEnsiklopediaBinding
 import com.example.florify.preferences.PreferencesHelper
 import com.example.florify.repository.Repository
 import com.example.florify.adapter.EncyclopediaAdapter
+import com.example.florify.databinding.FragmentEncyclopediaBinding
 import com.example.florify.viewmodelfactory.ViewModelFactory
 
 class EncyclopediaFragment : Fragment() {
 
-    private var _binding: FragmentEnsiklopediaBinding? = null
+    private var _binding: FragmentEncyclopediaBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: EncyclopediaViewModel
     private lateinit var sharedPreferencesHelper: PreferencesHelper
@@ -37,7 +36,7 @@ class EncyclopediaFragment : Fragment() {
             ViewModelFactory(repository, sharedPreferencesHelper)
         )[EncyclopediaViewModel::class.java]
 
-        _binding = FragmentEnsiklopediaBinding.inflate(inflater, container, false)
+        _binding = FragmentEncyclopediaBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.rvEncyclopedia.layoutManager = LinearLayoutManager(requireContext())
@@ -82,7 +81,7 @@ class EncyclopediaFragment : Fragment() {
 
         viewModel.filteredEncyclopediaList.observe(viewLifecycleOwner) { filteredItems ->
             if (filteredItems != null) {
-                val nonNullItems = filteredItems.filterNotNull()
+                val nonNullItems = filteredItems.filterNotNull().sortedBy { it.title }
                 binding.rvEncyclopedia.adapter = EncyclopediaAdapter(nonNullItems)
             } else {
                 Toast.makeText(requireContext(), "No results found", Toast.LENGTH_SHORT).show()

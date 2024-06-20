@@ -18,7 +18,6 @@ class LoginViewModel(private val userRepository: Repository) : ViewModel() {
     var isLoading: LiveData<Boolean> = _isLoading
     val error: LiveData<String?> get() = _error
 
-
     fun loginUser(email: String, password: String) {
         showLoading()
         viewModelScope.launch {
